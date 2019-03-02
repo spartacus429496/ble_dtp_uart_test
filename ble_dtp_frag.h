@@ -8,6 +8,9 @@
 
 #ifndef _BLE_DTP_BUF_H
 #define _BLE_DTP_BUF_H
+#ifndef DEBUG_LOG_EN
+//#define DEBUG_LOG_EN 1
+#endif
 
 struct dtp_buff_head {
     unsigned char reserved;

@@ -10,6 +10,9 @@
 #ifndef _HBTO_UART_H
 #define _HBTO_UART_H
 
+#ifndef DEBUG_LOG_EN
+//#define DEBUG_LOG_EN 1
+#endif
 
 //#define MTU 20
 //#define MAX_ENTRIES (1024/MTU+1)

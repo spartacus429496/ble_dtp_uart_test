@@ -1,4 +1,4 @@
-#include "ip_frag.h"
+#include "ble_dtp_frag.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -186,8 +186,10 @@ void __lowlevel_driver_tx(unsigned char *p_data, unsigned short len)
 {
     unsigned short i=0;
     for (i=0;i<len;i++) {
+#ifdef DEBUG_LOG_EN
         printf("%2x,", *(p_data+i));
         //printf("%c", *(p_data+i));
+#endif
     }
     printf("\n");
 }
@@ -298,11 +300,13 @@ unsigned short __do_reasm(m_buf_t *p_mbuf, unsigned char *p_out)
     //check len_sum and offset
     if (len_sum != (offset+len)) {
         //recv checking error
+#ifdef DEBUG_LOG_EN
         printf("recving length checking error!len_sum:%d, \
                 offset:%d,\
                 len:%d,\
                 \n",\
                 len_sum, offset, len);
+#endif
         len_sum = 0;
         goto err;
     }
